@@ -1,0 +1,29 @@
+<%= form_for(@house_expense_per_tenant) do |f| %>
+  <% if @house_expense_per_tenant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@house_expense_per_tenant.errors.count, "error") %> prohibited this house_expense_per_tenant from being saved:</h2>
+
+      <ul>
+      <% @house_expense_per_tenant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :house_expense_id %><br>
+    <%= f.number_field :house_expense_id %>
+  </div>
+  <div class="field">
+    <%= f.label :tenant_id %><br>
+    <%= f.number_field :tenant_id %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

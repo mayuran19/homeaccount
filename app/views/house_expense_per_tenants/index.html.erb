@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing House Expense Per Tenants</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>House expense</th>
+      <th>Tenant</th>
+      <th>Amount</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @house_expense_per_tenants.each do |house_expense_per_tenant| %>
+      <tr>
+        <td><%= house_expense_per_tenant.house_expense_id %></td>
+        <td><%= house_expense_per_tenant.tenant_id %></td>
+        <td><%= house_expense_per_tenant.amount %></td>
+        <td><%= link_to 'Show', house_expense_per_tenant %></td>
+        <td><%= link_to 'Edit', edit_house_expense_per_tenant_path(house_expense_per_tenant) %></td>
+        <td><%= link_to 'Destroy', house_expense_per_tenant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New House expense per tenant', new_house_expense_per_tenant_path %>

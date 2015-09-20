@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Expense name:</strong>
+  <%= @house_expense_template.expense_name %>
+</p>
+
+<p>
+  <strong>House:</strong>
+  <%= @house_expense_template.house_id %>
+</p>
+
+<p>
+  <strong>Recurring frequency:</strong>
+  <%= @house_expense_template.recurring_frequency_id %>
+</p>
+
+<p>
+  <strong>Recurring frequency value:</strong>
+  <%= @house_expense_template.recurring_frequency_value %>
+</p>
+
+<p>
+  <strong>Effective from:</strong>
+  <%= @house_expense_template.effective_from %>
+</p>
+
+<p>
+  <strong>Effective to:</strong>
+  <%= @house_expense_template.effective_to %>
+</p>
+
+<p>
+  <strong>Is mandatory:</strong>
+  <%= @house_expense_template.is_mandatory %>
+</p>
+
+<p>
+  <strong>Default amount:</strong>
+  <%= @house_expense_template.default_amount %>
+</p>
+
+<%= link_to 'Edit', edit_house_expense_template_path(@house_expense_template) %> |
+<%= link_to 'Back', house_expense_templates_path %>

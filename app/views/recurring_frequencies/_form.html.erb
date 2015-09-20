@@ -1,0 +1,25 @@
+<%= form_for(@recurring_frequency) do |f| %>
+  <% if @recurring_frequency.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recurring_frequency.errors.count, "error") %> prohibited this recurring_frequency from being saved:</h2>
+
+      <ul>
+      <% @recurring_frequency.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :frequency %><br>
+    <%= f.text_field :frequency %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Frequency:</strong>
+  <%= @recurring_frequency.frequency %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @recurring_frequency.description %>
+</p>
+
+<%= link_to 'Edit', edit_recurring_frequency_path(@recurring_frequency) %> |
+<%= link_to 'Back', recurring_frequencies_path %>

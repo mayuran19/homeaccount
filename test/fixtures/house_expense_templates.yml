@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  expense_name: MyString
+  house_id: MyString
+  recurring_frequency_id: 1
+  recurring_frequency_value: MyString
+  effective_from: 2015-09-21
+  effective_to: 2015-09-21
+  is_mandatory: false
+  default_amount: 9.99
+
+two:
+  expense_name: MyString
+  house_id: MyString
+  recurring_frequency_id: 1
+  recurring_frequency_value: MyString
+  effective_from: 2015-09-21
+  effective_to: 2015-09-21
+  is_mandatory: false
+  default_amount: 9.99

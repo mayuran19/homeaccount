@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tenant:</strong>
+  <%= @house_expense.tenant_id %>
+</p>
+
+<p>
+  <strong>House expense template:</strong>
+  <%= @house_expense.house_expense_template_id %>
+</p>
+
+<p>
+  <strong>Expense name:</strong>
+  <%= @house_expense.expense_name %>
+</p>
+
+<p>
+  <strong>House:</strong>
+  <%= @house_expense.house_id %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @house_expense.amount %>
+</p>
+
+<p>
+  <strong>Spent date:</strong>
+  <%= @house_expense.spent_date %>
+</p>
+
+<%= link_to 'Edit', edit_house_expense_path(@house_expense) %> |
+<%= link_to 'Back', house_expenses_path %>

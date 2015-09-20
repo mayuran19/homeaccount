@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tenant_id: 1
+  house_expense_template_id: 1
+  expense_name: MyString
+  house_id: 1
+  amount: 9.99
+  spent_date: 2015-09-21
+
+two:
+  tenant_id: 1
+  house_expense_template_id: 1
+  expense_name: MyString
+  house_id: 1
+  amount: 9.99
+  spent_date: 2015-09-21

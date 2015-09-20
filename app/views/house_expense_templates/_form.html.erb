@@ -1,0 +1,49 @@
+<%= form_for(@house_expense_template) do |f| %>
+  <% if @house_expense_template.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@house_expense_template.errors.count, "error") %> prohibited this house_expense_template from being saved:</h2>
+
+      <ul>
+      <% @house_expense_template.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :expense_name %><br>
+    <%= f.text_field :expense_name %>
+  </div>
+  <div class="field">
+    <%= f.label :house_id %><br>
+    <%= f.text_field :house_id %>
+  </div>
+  <div class="field">
+    <%= f.label :recurring_frequency_id %><br>
+    <%= f.number_field :recurring_frequency_id %>
+  </div>
+  <div class="field">
+    <%= f.label :recurring_frequency_value %><br>
+    <%= f.text_field :recurring_frequency_value %>
+  </div>
+  <div class="field">
+    <%= f.label :effective_from %><br>
+    <%= f.date_select :effective_from %>
+  </div>
+  <div class="field">
+    <%= f.label :effective_to %><br>
+    <%= f.date_select :effective_to %>
+  </div>
+  <div class="field">
+    <%= f.label :is_mandatory %><br>
+    <%= f.check_box :is_mandatory %>
+  </div>
+  <div class="field">
+    <%= f.label :default_amount %><br>
+    <%= f.text_field :default_amount %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
