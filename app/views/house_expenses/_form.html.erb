@@ -1,4 +1,6 @@
-<%= form_for(@house_expense) do |f| %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+<%= form_for(@house_expense, :html => {class: "form-horizontal"}) do |f| %>
   <% if @house_expense.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@house_expense.errors.count, "error") %> prohibited this house_expense from being saved:</h2>
@@ -11,31 +13,29 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :tenant_id %><br>
-    <%= f.number_field :tenant_id %>
+  <div class="form-group">
+    <%= f.label :expense_name, class: "col-sm-3 control-label" %>
+    <div class="col-sm-9">
+      <%= f.text_field :expense_name, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :house_expense_template_id %><br>
-    <%= f.number_field :house_expense_template_id %>
+  <div class="form-group">
+    <%= f.label :amount, class: "col-sm-3 control-label" %>
+    <div class="col-sm-9">
+      <%= f.text_field :amount, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :expense_name %><br>
-    <%= f.text_field :expense_name %>
+  <div class="form-group">
+    <%= f.label :spent_date, class: "col-sm-3 control-label" %>
+    <div class="col-sm-9">
+      <%= f.date_select :spent_date, {}, {:class => "form-control", :style => "display: inline;width: 32.5%;"} %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :house_id %><br>
-    <%= f.number_field :house_id %>
-  </div>
-  <div class="field">
-    <%= f.label :amount %><br>
-    <%= f.text_field :amount %>
-  </div>
-  <div class="field">
-    <%= f.label :spent_date %><br>
-    <%= f.date_select :spent_date %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+      <%= f.submit 'Add expense', :class => "btn btn-default" %>
+    </div>
   </div>
 <% end %>
+  </div>
+</div>

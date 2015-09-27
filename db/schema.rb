@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150920170209) do
+ActiveRecord::Schema.define(version: 20150927141430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "house_account_cycles", force: :cascade do |t|
+    t.integer  "house_id"
+    t.date     "from_date"
+    t.date     "to_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "house_expense_per_tenants", force: :cascade do |t|
     t.integer  "house_expense_id"
@@ -35,6 +43,7 @@ ActiveRecord::Schema.define(version: 20150920170209) do
     t.decimal  "default_amount"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "default_payee_id"
   end
 
   create_table "house_expenses", force: :cascade do |t|
@@ -46,6 +55,15 @@ ActiveRecord::Schema.define(version: 20150920170209) do
     t.date     "spent_date"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "house_account_cycle_id"
+  end
+
+  create_table "house_settings", force: :cascade do |t|
+    t.integer  "house_id"
+    t.string   "setting_name"
+    t.string   "setting_value"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "houses", force: :cascade do |t|
@@ -65,8 +83,11 @@ ActiveRecord::Schema.define(version: 20150920170209) do
   create_table "tenants", force: :cascade do |t|
     t.integer  "house_id"
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "email"
+    t.string   "password_hash"
+    t.string   "password_salt"
   end
 
 end

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>House:</strong>
+  <%= @house_account_cycle.house_id %>
+</p>
+
+<p>
+  <strong>From date:</strong>
+  <%= @house_account_cycle.from_date %>
+</p>
+
+<p>
+  <strong>To date:</strong>
+  <%= @house_account_cycle.to_date %>
+</p>
+
+<%= link_to 'Edit', edit_house_account_cycle_path(@house_account_cycle) %> |
+<%= link_to 'Back', house_account_cycles_path %>

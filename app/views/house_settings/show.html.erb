@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>House:</strong>
+  <%= @house_setting.house_id %>
+</p>
+
+<p>
+  <strong>Setting name:</strong>
+  <%= @house_setting.setting_name %>
+</p>
+
+<p>
+  <strong>Setting value:</strong>
+  <%= @house_setting.setting_value %>
+</p>
+
+<%= link_to 'Edit', edit_house_setting_path(@house_setting) %> |
+<%= link_to 'Back', house_settings_path %>

@@ -16,16 +16,8 @@
     <%= f.text_field :expense_name %>
   </div>
   <div class="field">
-    <%= f.label :house_id %><br>
-    <%= f.text_field :house_id %>
-  </div>
-  <div class="field">
     <%= f.label :recurring_frequency_id %><br>
-    <%= f.number_field :recurring_frequency_id %>
-  </div>
-  <div class="field">
-    <%= f.label :recurring_frequency_value %><br>
-    <%= f.text_field :recurring_frequency_value %>
+    <%= f.collection_select(:recurring_frequency_id, RecurringFrequency.all, :id, :frequency) %>
   </div>
   <div class="field">
     <%= f.label :effective_from %><br>

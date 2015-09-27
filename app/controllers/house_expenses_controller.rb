@@ -4,7 +4,11 @@ class HouseExpensesController < ApplicationController
   # GET /house_expenses
   # GET /house_expenses.json
   def index
-    @house_expenses = HouseExpense.all
+    @current_account_cycle = HouseAccountCycle.where("id = (select to_number(setting_value,'9') from house_settings where setting_name = 'ACCOUNT_CYCLE') and house_id = ?", current_user.house_id).first
+    puts "*******************" 
+    puts @current_account_cycle.class
+    @fixed_expenses = HouseExpenseTemplate.where(:house_id => current_user.house_id)
+    @house_expenses = HouseExpense.where(:house_id => current_user.house_id)
   end
 
   # GET /house_expenses/1
@@ -25,7 +29,9 @@ class HouseExpensesController < ApplicationController
   # POST /house_expenses.json
   def create
     @house_expense = HouseExpense.new(house_expense_params)
-
+    @house_expense.tenant_id = current_user.id
+    @house_expense.house_id = current_user.house_id
+    @house_expense.house_account_cycle_id = HouseSetting.where("setting_name = ? and house_id = ?", "ACCOUNT_CYCLE", current_user.house_id)
     respond_to do |format|
       if @house_expense.save
         format.html { redirect_to @house_expense, notice: 'House expense was successfully created.' }

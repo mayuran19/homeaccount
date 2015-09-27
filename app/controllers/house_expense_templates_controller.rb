@@ -1,4 +1,5 @@
 class HouseExpenseTemplatesController < ApplicationController
+  before_filter :authorize
   before_action :set_house_expense_template, only: [:show, :edit, :update, :destroy]
 
   # GET /house_expense_templates
@@ -25,7 +26,7 @@ class HouseExpenseTemplatesController < ApplicationController
   # POST /house_expense_templates.json
   def create
     @house_expense_template = HouseExpenseTemplate.new(house_expense_template_params)
-
+    @house_expense_template.house_id = current_user.house_id
     respond_to do |format|
       if @house_expense_template.save
         format.html { redirect_to @house_expense_template, notice: 'House expense template was successfully created.' }

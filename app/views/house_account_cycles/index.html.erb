@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing House Account Cycles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>House</th>
+      <th>From date</th>
+      <th>To date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @house_account_cycles.each do |house_account_cycle| %>
+      <tr>
+        <td><%= house_account_cycle.house_id %></td>
+        <td><%= house_account_cycle.from_date %></td>
+        <td><%= house_account_cycle.to_date %></td>
+        <td><%= link_to 'Show', house_account_cycle %></td>
+        <td><%= link_to 'Edit', edit_house_account_cycle_path(house_account_cycle) %></td>
+        <td><%= link_to 'Destroy', house_account_cycle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New House account cycle', new_house_account_cycle_path %>

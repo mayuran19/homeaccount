@@ -1,0 +1,29 @@
+<%= form_for(@house_account_cycle) do |f| %>
+  <% if @house_account_cycle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@house_account_cycle.errors.count, "error") %> prohibited this house_account_cycle from being saved:</h2>
+
+      <ul>
+      <% @house_account_cycle.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :house_id %><br>
+    <%= f.number_field :house_id %>
+  </div>
+  <div class="field">
+    <%= f.label :from_date %><br>
+    <%= f.date_select :from_date %>
+  </div>
+  <div class="field">
+    <%= f.label :to_date %><br>
+    <%= f.date_select :to_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
