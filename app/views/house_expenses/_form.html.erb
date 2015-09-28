@@ -12,7 +12,12 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="form-group">
+    <%= f.label :expense_name, class: "col-sm-3 control-label" %>
+    <div class="col-sm-9">
+      <%= f.collection_select(:tenant_id, @tenants, :id, :name, {}, {:class => 'form-control'}) %>
+    </div>
+  </div>
   <div class="form-group">
     <%= f.label :expense_name, class: "col-sm-3 control-label" %>
     <div class="col-sm-9">
