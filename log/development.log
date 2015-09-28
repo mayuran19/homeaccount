@@ -15707,3 +15707,906 @@ Processing by HouseExpensesController#index as HTML
   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
   Rendered house_expenses/index.html.erb within layouts/application (4.8ms)
 Completed 200 OK in 125ms (Views: 122.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/house_expenses" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+Processing by HouseExpensesController#index as HTML
+  [1m[35mTenant Load (0.1ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouseAccountCycle Load (0.3ms)[0m  [1mSELECT  "house_account_cycles".* FROM "house_account_cycles" WHERE (id = (select to_number(setting_value,'9') from house_settings where setting_name = 'ACCOUNT_CYCLE') and house_id = 1)  ORDER BY "house_account_cycles"."id" ASC LIMIT 1[0m
+  [1m[35mHouseExpense Load (0.2ms)[0m  SELECT "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."house_id" = $1  [["house_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered house_expenses/index.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 152ms (Views: 128.5ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/assets/application.self-5b6dc93add186cfbc0081f647b7938e7e627ef6844555957adc75bee59b4e72a.css?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/house_expense_per_tenants.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/house_account_cycles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/house_expense_templates.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/house_expenses.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/house_settings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/houses.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/recurring_frequencies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/tenants.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2015-09-29 00:34:59 +0800
+
+
+Started DELETE "/house_expenses/2" for 127.0.0.1 at 2015-09-29 00:35:27 +0800
+Processing by HouseExpensesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xgAolR2FO3yohMZonLXehjKK+x8Ovfezxj5uPagd18QLHZ7/vTk5cS7Cs09aG8kyY828x1zEvnnM3hDfq81MKg==", "id"=>"2"}
+  [1m[36mHouseExpense Load (0.5ms)[0m  [1mSELECT  "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mHouseExpensePerTenant Load (0.3ms)[0m  [1mSELECT "house_expense_per_tenants".* FROM "house_expense_per_tenants" WHERE "house_expense_per_tenants"."house_expense_id" = $1[0m  [["house_expense_id", 2]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "house_expenses" WHERE "house_expenses"."id" = $1  [["id", 2]]
+  [1m[36m (16.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/house_expenses
+Completed 302 Found in 28ms (ActiveRecord: 18.3ms)
+
+
+Started GET "/house_expenses" for 127.0.0.1 at 2015-09-29 00:35:27 +0800
+Processing by HouseExpensesController#index as HTML
+  [1m[35mTenant Load (0.3ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouseAccountCycle Load (0.6ms)[0m  [1mSELECT  "house_account_cycles".* FROM "house_account_cycles" WHERE (id = (select to_number(setting_value,'9') from house_settings where setting_name = 'ACCOUNT_CYCLE') and house_id = 1)  ORDER BY "house_account_cycles"."id" ASC LIMIT 1[0m
+  [1m[35mHouseExpense Load (0.2ms)[0m  SELECT "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."house_id" = $1  [["house_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered house_expenses/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 143ms (Views: 139.8ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/house_expenses/3" for 127.0.0.1 at 2015-09-29 00:35:39 +0800
+Processing by HouseExpensesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"gpSJ6Oqs9AFjAL0C/HXlfkrwL2YQfOdld5satx76nn5PiT+CShD2DOVGyCU62/LKG7dovkIFrq99e2RVHSoFkA==", "id"=>"3"}
+  [1m[35mHouseExpense Load (0.4ms)[0m  SELECT  "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHouseExpensePerTenant Load (0.5ms)[0m  SELECT "house_expense_per_tenants".* FROM "house_expense_per_tenants" WHERE "house_expense_per_tenants"."house_expense_id" = $1  [["house_expense_id", 3]]
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "house_expenses" WHERE "house_expenses"."id" = $1[0m  [["id", 3]]
+  [1m[35m (20.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/house_expenses
+Completed 302 Found in 27ms (ActiveRecord: 22.1ms)
+
+
+Started GET "/house_expenses" for 127.0.0.1 at 2015-09-29 00:35:39 +0800
+Processing by HouseExpensesController#index as HTML
+  [1m[36mTenant Load (0.1ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouseAccountCycle Load (0.4ms)[0m  SELECT  "house_account_cycles".* FROM "house_account_cycles" WHERE (id = (select to_number(setting_value,'9') from house_settings where setting_name = 'ACCOUNT_CYCLE') and house_id = 1)  ORDER BY "house_account_cycles"."id" ASC LIMIT 1
+  [1m[36mHouseExpense Load (0.1ms)[0m  [1mSELECT "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."house_id" = $1[0m  [["house_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered house_expenses/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 133ms (Views: 130.6ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/house_expenses/4" for 127.0.0.1 at 2015-09-29 00:35:41 +0800
+Processing by HouseExpensesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"UUU8EUXTJ0PcLnNAWaIK3NRBXbUx3rts3k+NaSl1n2acWIp75W8lTlpoBmefDB1ohQYabWOn8qbUr/OLKqUEiA==", "id"=>"4"}
+  [1m[35mHouseExpense Load (0.2ms)[0m  SELECT  "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHouseExpensePerTenant Load (0.4ms)[0m  SELECT "house_expense_per_tenants".* FROM "house_expense_per_tenants" WHERE "house_expense_per_tenants"."house_expense_id" = $1  [["house_expense_id", 4]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "house_expenses" WHERE "house_expenses"."id" = $1[0m  [["id", 4]]
+  [1m[35m (21.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/house_expenses
+Completed 302 Found in 26ms (ActiveRecord: 22.1ms)
+
+
+Started GET "/house_expenses" for 127.0.0.1 at 2015-09-29 00:35:41 +0800
+Processing by HouseExpensesController#index as HTML
+  [1m[36mTenant Load (0.2ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouseAccountCycle Load (0.4ms)[0m  SELECT  "house_account_cycles".* FROM "house_account_cycles" WHERE (id = (select to_number(setting_value,'9') from house_settings where setting_name = 'ACCOUNT_CYCLE') and house_id = 1)  ORDER BY "house_account_cycles"."id" ASC LIMIT 1
+  [1m[36mHouseExpense Load (0.2ms)[0m  [1mSELECT "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."house_id" = $1[0m  [["house_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered house_expenses/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 128ms (Views: 124.5ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/house_expenses/5" for 127.0.0.1 at 2015-09-29 00:35:43 +0800
+Processing by HouseExpensesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"CEnGMr3Bth9jsjAoDohnVJVMVqbTS4i86O89T7gtJbjFVHBYHX20EuX0RQ/IJnDgxAsRfoEywXbiD0Otu/2+Vg==", "id"=>"5"}
+  [1m[36mHouseExpense Load (0.2ms)[0m  [1mSELECT  "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mHouseExpensePerTenant Load (0.2ms)[0m  [1mSELECT "house_expense_per_tenants".* FROM "house_expense_per_tenants" WHERE "house_expense_per_tenants"."house_expense_id" = $1[0m  [["house_expense_id", 5]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "house_expense_per_tenants" WHERE "house_expense_per_tenants"."id" = $1  [["id", 1]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "house_expenses" WHERE "house_expenses"."id" = $1[0m  [["id", 5]]
+  [1m[35m (318.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/house_expenses
+Completed 302 Found in 329ms (ActiveRecord: 319.9ms)
+
+
+Started GET "/house_expenses" for 127.0.0.1 at 2015-09-29 00:35:43 +0800
+Processing by HouseExpensesController#index as HTML
+  [1m[36mTenant Load (0.2ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouseAccountCycle Load (0.5ms)[0m  SELECT  "house_account_cycles".* FROM "house_account_cycles" WHERE (id = (select to_number(setting_value,'9') from house_settings where setting_name = 'ACCOUNT_CYCLE') and house_id = 1)  ORDER BY "house_account_cycles"."id" ASC LIMIT 1
+  [1m[36mHouseExpense Load (0.2ms)[0m  [1mSELECT "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."house_id" = $1[0m  [["house_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered house_expenses/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 125ms (Views: 121.3ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/house_expenses/9" for 127.0.0.1 at 2015-09-29 00:35:58 +0800
+Processing by HouseExpensesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"lyBVEXKWZReuD8uxR7FgqG+YbA0LDeptP+xzYQJVYxJaPeN70ipnGihJvpaBH3ccPt8r1Vl0o6c1DA2DAYX4/A==", "id"=>"9"}
+  [1m[35mHouseExpense Load (0.2ms)[0m  SELECT  "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHouseExpensePerTenant Load (0.4ms)[0m  SELECT "house_expense_per_tenants".* FROM "house_expense_per_tenants" WHERE "house_expense_per_tenants"."house_expense_id" = $1  [["house_expense_id", 9]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "house_expense_per_tenants" WHERE "house_expense_per_tenants"."id" = $1[0m  [["id", 8]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "house_expense_per_tenants" WHERE "house_expense_per_tenants"."id" = $1  [["id", 9]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "house_expense_per_tenants" WHERE "house_expense_per_tenants"."id" = $1[0m  [["id", 10]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "house_expenses" WHERE "house_expenses"."id" = $1  [["id", 9]]
+  [1m[36m (101.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/house_expenses
+Completed 302 Found in 111ms (ActiveRecord: 103.8ms)
+
+
+Started GET "/house_expenses" for 127.0.0.1 at 2015-09-29 00:35:58 +0800
+Processing by HouseExpensesController#index as HTML
+  [1m[35mTenant Load (0.3ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouseAccountCycle Load (0.8ms)[0m  [1mSELECT  "house_account_cycles".* FROM "house_account_cycles" WHERE (id = (select to_number(setting_value,'9') from house_settings where setting_name = 'ACCOUNT_CYCLE') and house_id = 1)  ORDER BY "house_account_cycles"."id" ASC LIMIT 1[0m
+  [1m[35mHouseExpense Load (0.2ms)[0m  SELECT "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."house_id" = $1  [["house_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered house_expenses/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 122ms (Views: 118.2ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/house_expenses/8" for 127.0.0.1 at 2015-09-29 00:36:04 +0800
+Processing by HouseExpensesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"enFKSrtITCJLa+PqHrJFvjnuPFK9kv6VZ2VYId1G/KO3bPwgG/ROL80tls3YHFIKaKl7iu/rt19thSbD3pZnTQ==", "id"=>"8"}
+  [1m[35mHouseExpense Load (0.5ms)[0m  SELECT  "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mHouseExpensePerTenant Load (0.5ms)[0m  SELECT "house_expense_per_tenants".* FROM "house_expense_per_tenants" WHERE "house_expense_per_tenants"."house_expense_id" = $1  [["house_expense_id", 8]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "house_expense_per_tenants" WHERE "house_expense_per_tenants"."id" = $1[0m  [["id", 6]]
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "house_expense_per_tenants" WHERE "house_expense_per_tenants"."id" = $1  [["id", 7]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "house_expenses" WHERE "house_expenses"."id" = $1[0m  [["id", 8]]
+  [1m[35m (38.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/house_expenses
+Completed 302 Found in 47ms (ActiveRecord: 41.0ms)
+
+
+Started GET "/house_expenses" for 127.0.0.1 at 2015-09-29 00:36:04 +0800
+Processing by HouseExpensesController#index as HTML
+  [1m[36mTenant Load (0.5ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouseAccountCycle Load (0.9ms)[0m  SELECT  "house_account_cycles".* FROM "house_account_cycles" WHERE (id = (select to_number(setting_value,'9') from house_settings where setting_name = 'ACCOUNT_CYCLE') and house_id = 1)  ORDER BY "house_account_cycles"."id" ASC LIMIT 1
+  [1m[36mHouseExpense Load (0.3ms)[0m  [1mSELECT "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."house_id" = $1[0m  [["house_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered house_expenses/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 167ms (Views: 161.3ms | ActiveRecord: 1.7ms)
+
+
+Started DELETE "/house_expenses/7" for 127.0.0.1 at 2015-09-29 00:36:06 +0800
+Processing by HouseExpensesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"UndCRfIhK/fja7iloeVJUJsTCn9njy9fhtEqzTUcz7ufavQvUp0p+mUtzYJnS17kylRNpzX2ZpWMMVQvNsxUVQ==", "id"=>"7"}
+  [1m[35mHouseExpense Load (0.3ms)[0m  SELECT  "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mHouseExpensePerTenant Load (0.3ms)[0m  SELECT "house_expense_per_tenants".* FROM "house_expense_per_tenants" WHERE "house_expense_per_tenants"."house_expense_id" = $1  [["house_expense_id", 7]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "house_expense_per_tenants" WHERE "house_expense_per_tenants"."id" = $1[0m  [["id", 4]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "house_expense_per_tenants" WHERE "house_expense_per_tenants"."id" = $1  [["id", 5]]
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "house_expenses" WHERE "house_expenses"."id" = $1[0m  [["id", 7]]
+  [1m[35m (518.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/house_expenses
+Completed 302 Found in 529ms (ActiveRecord: 520.4ms)
+
+
+Started GET "/house_expenses" for 127.0.0.1 at 2015-09-29 00:36:07 +0800
+Processing by HouseExpensesController#index as HTML
+  [1m[36mTenant Load (0.4ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouseAccountCycle Load (0.9ms)[0m  SELECT  "house_account_cycles".* FROM "house_account_cycles" WHERE (id = (select to_number(setting_value,'9') from house_settings where setting_name = 'ACCOUNT_CYCLE') and house_id = 1)  ORDER BY "house_account_cycles"."id" ASC LIMIT 1
+  [1m[36mHouseExpense Load (0.4ms)[0m  [1mSELECT "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."house_id" = $1[0m  [["house_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered house_expenses/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 170ms (Views: 165.1ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/house_expenses/6" for 127.0.0.1 at 2015-09-29 00:36:08 +0800
+Processing by HouseExpensesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"C3BLFu6ZZz1E3Y06250/7yw8mqLldymbaYt/KltGQo/Gbf18TiVlMMKb+B0dMyhbfXvdercOYFFjawHIWJbZYQ==", "id"=>"6"}
+  [1m[36mHouseExpense Load (0.2ms)[0m  [1mSELECT  "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mHouseExpensePerTenant Load (0.2ms)[0m  [1mSELECT "house_expense_per_tenants".* FROM "house_expense_per_tenants" WHERE "house_expense_per_tenants"."house_expense_id" = $1[0m  [["house_expense_id", 6]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "house_expense_per_tenants" WHERE "house_expense_per_tenants"."id" = $1  [["id", 2]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "house_expense_per_tenants" WHERE "house_expense_per_tenants"."id" = $1[0m  [["id", 3]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "house_expenses" WHERE "house_expenses"."id" = $1  [["id", 6]]
+  [1m[36m (39.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/house_expenses
+Completed 302 Found in 45ms (ActiveRecord: 40.8ms)
+
+
+Started GET "/house_expenses" for 127.0.0.1 at 2015-09-29 00:36:08 +0800
+Processing by HouseExpensesController#index as HTML
+  [1m[35mTenant Load (0.3ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouseAccountCycle Load (0.8ms)[0m  [1mSELECT  "house_account_cycles".* FROM "house_account_cycles" WHERE (id = (select to_number(setting_value,'9') from house_settings where setting_name = 'ACCOUNT_CYCLE') and house_id = 1)  ORDER BY "house_account_cycles"."id" ASC LIMIT 1[0m
+  [1m[35mHouseExpense Load (0.2ms)[0m  SELECT "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."house_id" = $1  [["house_id", 1]]
+  Rendered house_expenses/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 123ms (Views: 118.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/house_expenses/new" for 127.0.0.1 at 2015-09-29 00:36:11 +0800
+Processing by HouseExpensesController#new as HTML
+  [1m[36mTenant Load (0.3ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTenant Load (0.3ms)[0m  SELECT "tenants".* FROM "tenants" WHERE "tenants"."house_id" = $1  [["house_id", 1]]
+  Rendered house_expenses/_form.html.erb (9.1ms)
+  Rendered house_expenses/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 123ms (Views: 121.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/house_expenses" for 127.0.0.1 at 2015-09-29 00:36:21 +0800
+Processing by HouseExpensesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hr3EUik0n2eKgu/nSXW5/LVmfxC8T19x9PlzphObJxNLoHI4iYidagzEmsCP265I5CE4yO42Frv+GQ1EEEu8/Q==", "house_expense"=>{"expense_name"=>"Shopping", "amount"=>"23", "spent_date(1i)"=>"2015", "spent_date(2i)"=>"9", "spent_date(3i)"=>"28", "tenant_ids"=>["1", "3", "4", ""]}, "commit"=>"Add expense"}
+  [1m[36mTenant Load (0.4ms)[0m  [1mSELECT "tenants".* FROM "tenants" WHERE "tenants"."id" IN (1, 3, 4)[0m
+  [1m[35mTenant Load (0.3ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTenant Exists (0.4ms)[0m  SELECT  1 AS one FROM "tenants" WHERE ("tenants"."email" = 'mayuran19@gmail.com' AND "tenants"."id" != 1) LIMIT 1
+  [1m[36mTenant Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "tenants" WHERE ("tenants"."email" = 'mayuran@gmail.com' AND "tenants"."id" != 3) LIMIT 1[0m
+  [1m[35mTenant Exists (0.3ms)[0m  SELECT  1 AS one FROM "tenants" WHERE ("tenants"."email" = 'sadden@gmail.com' AND "tenants"."id" != 4) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "house_expenses" ("expense_name", "amount", "spent_date", "tenant_id", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["expense_name", "Shopping"], ["amount", "23.0"], ["spent_date", "2015-09-28"], ["tenant_id", 1], ["house_id", 1], ["created_at", "2015-09-28 16:36:21.077226"], ["updated_at", "2015-09-28 16:36:21.077226"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "house_expense_per_tenants" ("tenant_id", "amount", "house_expense_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["tenant_id", 1], ["amount", "7.666666666666666667"], ["house_expense_id", 10], ["created_at", "2015-09-28 16:36:21.078963"], ["updated_at", "2015-09-28 16:36:21.078963"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "house_expense_per_tenants" ("tenant_id", "amount", "house_expense_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["tenant_id", 3], ["amount", "7.666666666666666667"], ["house_expense_id", 10], ["created_at", "2015-09-28 16:36:21.080424"], ["updated_at", "2015-09-28 16:36:21.080424"]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "house_expense_per_tenants" ("tenant_id", "amount", "house_expense_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["tenant_id", 4], ["amount", "7.666666666666666667"], ["house_expense_id", 10], ["created_at", "2015-09-28 16:36:21.082119"], ["updated_at", "2015-09-28 16:36:21.082119"]]
+  [1m[36m (53.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/house_expenses/10
+Completed 302 Found in 79ms (ActiveRecord: 56.2ms)
+
+
+Started GET "/house_expenses/10" for 127.0.0.1 at 2015-09-29 00:36:21 +0800
+Processing by HouseExpensesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mHouseExpense Load (0.6ms)[0m  SELECT  "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."id" = $1 LIMIT 1  [["id", 10]]
+  Rendered house_expenses/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 126ms (Views: 124.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/house_expenses" for 127.0.0.1 at 2015-09-29 00:36:22 +0800
+Processing by HouseExpensesController#index as HTML
+  [1m[36mTenant Load (0.2ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouseAccountCycle Load (1.6ms)[0m  SELECT  "house_account_cycles".* FROM "house_account_cycles" WHERE (id = (select to_number(setting_value,'9') from house_settings where setting_name = 'ACCOUNT_CYCLE') and house_id = 1)  ORDER BY "house_account_cycles"."id" ASC LIMIT 1
+  [1m[36mHouseExpense Load (0.6ms)[0m  [1mSELECT "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."house_id" = $1[0m  [["house_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered house_expenses/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 129ms (Views: 123.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/tenants" for 127.0.0.1 at 2015-09-29 00:38:27 +0800
+Processing by TenantsController#index as HTML
+  [1m[36mTenant Load (0.7ms)[0m  [1mSELECT "tenants".* FROM "tenants"[0m
+  [1m[35mHouse Load (0.3ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered tenants/index.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 135ms (Views: 131.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/house_expenses" for 127.0.0.1 at 2015-09-29 00:38:30 +0800
+Processing by HouseExpensesController#index as HTML
+  [1m[36mTenant Load (0.4ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouseAccountCycle Load (0.7ms)[0m  SELECT  "house_account_cycles".* FROM "house_account_cycles" WHERE (id = (select to_number(setting_value,'9') from house_settings where setting_name = 'ACCOUNT_CYCLE') and house_id = 1)  ORDER BY "house_account_cycles"."id" ASC LIMIT 1
+  [1m[36mHouseExpense Load (0.4ms)[0m  [1mSELECT "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."house_id" = $1[0m  [["house_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered house_expenses/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 164ms (Views: 160.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/houses" for 127.0.0.1 at 2015-09-29 00:38:31 +0800
+Processing by HousesController#index as HTML
+  [1m[36mTenant Load (0.2ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouse Load (0.2ms)[0m  SELECT "houses".* FROM "houses"
+  Rendered houses/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 147ms (Views: 146.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/houses/new" for 127.0.0.1 at 2015-09-29 00:38:32 +0800
+Processing by HousesController#new as HTML
+  [1m[36mTenant Load (0.2ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered houses/_form.html.erb (40.6ms)
+  Rendered houses/new.html.erb within layouts/application (42.2ms)
+Completed 200 OK in 166ms (Views: 164.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/houses" for 127.0.0.1 at 2015-09-29 00:38:34 +0800
+Processing by HousesController#index as HTML
+  [1m[35mTenant Load (0.3ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouse Load (0.4ms)[0m  [1mSELECT "houses".* FROM "houses"[0m
+  Rendered houses/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 115ms (Views: 113.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/tenants" for 127.0.0.1 at 2015-09-29 00:38:35 +0800
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.2ms)[0m  SELECT "tenants".* FROM "tenants"
+  [1m[36mHouse Load (0.2ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered tenants/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 122ms (Views: 121.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tenants/new" for 127.0.0.1 at 2015-09-29 00:38:37 +0800
+Processing by TenantsController#new as HTML
+  Rendered tenants/_form.html.erb (4.1ms)
+  Rendered tenants/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 127ms (Views: 125.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tenants" for 127.0.0.1 at 2015-09-29 00:38:39 +0800
+Processing by TenantsController#index as HTML
+  [1m[35mTenant Load (0.4ms)[0m  SELECT "tenants".* FROM "tenants"
+  [1m[36mHouse Load (0.3ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "houses".* FROM "houses" WHERE "houses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered tenants/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 112ms (Views: 110.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/house_expenses" for 127.0.0.1 at 2015-09-29 00:38:40 +0800
+Processing by HouseExpensesController#index as HTML
+  [1m[35mTenant Load (0.2ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouseAccountCycle Load (0.4ms)[0m  [1mSELECT  "house_account_cycles".* FROM "house_account_cycles" WHERE (id = (select to_number(setting_value,'9') from house_settings where setting_name = 'ACCOUNT_CYCLE') and house_id = 1)  ORDER BY "house_account_cycles"."id" ASC LIMIT 1[0m
+  [1m[35mHouseExpense Load (0.2ms)[0m  SELECT "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."house_id" = $1  [["house_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered house_expenses/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 135ms (Views: 121.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/house_expenses/new" for 127.0.0.1 at 2015-09-29 00:38:41 +0800
+Processing by HouseExpensesController#new as HTML
+  [1m[35mTenant Load (0.2ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mTenant Load (0.2ms)[0m  [1mSELECT "tenants".* FROM "tenants" WHERE "tenants"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered house_expenses/_form.html.erb (6.4ms)
+  Rendered house_expenses/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 131ms (Views: 129.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/house_expenses" for 127.0.0.1 at 2015-09-29 00:38:44 +0800
+Processing by HouseExpensesController#index as HTML
+  [1m[35mTenant Load (0.2ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouseAccountCycle Load (0.9ms)[0m  [1mSELECT  "house_account_cycles".* FROM "house_account_cycles" WHERE (id = (select to_number(setting_value,'9') from house_settings where setting_name = 'ACCOUNT_CYCLE') and house_id = 1)  ORDER BY "house_account_cycles"."id" ASC LIMIT 1[0m
+  [1m[35mHouseExpense Load (0.2ms)[0m  SELECT "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."house_id" = $1  [["house_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered house_expenses/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 112ms (Views: 105.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/house_expenses/new" for 127.0.0.1 at 2015-09-29 00:41:38 +0800
+Processing by HouseExpensesController#new as HTML
+  [1m[35mTenant Load (0.2ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered house_expenses/_form.html.erb (4.4ms)
+  Rendered house_expenses/new.html.erb within layouts/application (5.3ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (wrong number of arguments (5 for 1..4)):
+    15:   <div class="form-group">
+    16:     <%= f.label :expense_name, class: "col-sm-3 control-label" %>
+    17:     <div class="col-sm-9">
+    18:       <%= f.select :tenant_id, @tenants, :id, :name, class: "form-control" %>
+    19:     </div>
+    20:   </div>
+    21:   <div class="form-group">
+  app/views/house_expenses/_form.html.erb:18:in `block in _app_views_house_expenses__form_html_erb___1002283466313289154_70057604433480'
+  app/views/house_expenses/_form.html.erb:3:in `_app_views_house_expenses__form_html_erb___1002283466313289154_70057604433480'
+  app/views/house_expenses/new.html.erb:3:in `_app_views_house_expenses_new_html_erb___3315167411994799400_70057609823240'
+
+
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.7ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (24.8ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (15.7ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (30.6ms)
+
+
+Started GET "/house_expenses/new" for 127.0.0.1 at 2015-09-29 00:41:39 +0800
+Processing by HouseExpensesController#new as HTML
+  [1m[36mTenant Load (0.2ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered house_expenses/_form.html.erb (3.8ms)
+  Rendered house_expenses/new.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (wrong number of arguments (5 for 1..4)):
+    15:   <div class="form-group">
+    16:     <%= f.label :expense_name, class: "col-sm-3 control-label" %>
+    17:     <div class="col-sm-9">
+    18:       <%= f.select :tenant_id, @tenants, :id, :name, class: "form-control" %>
+    19:     </div>
+    20:   </div>
+    21:   <div class="form-group">
+  app/views/house_expenses/_form.html.erb:18:in `block in _app_views_house_expenses__form_html_erb___1002283466313289154_70057609374200'
+  app/views/house_expenses/_form.html.erb:3:in `_app_views_house_expenses__form_html_erb___1002283466313289154_70057609374200'
+  app/views/house_expenses/new.html.erb:3:in `_app_views_house_expenses_new_html_erb___3315167411994799400_70057747859140'
+
+
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.7ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (26.0ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (17.2ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (35.3ms)
+
+
+Started GET "/house_expenses/new" for 127.0.0.1 at 2015-09-29 00:42:15 +0800
+Processing by HouseExpensesController#new as HTML
+  [1m[35mTenant Load (0.5ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered house_expenses/_form.html.erb (4.4ms)
+  Rendered house_expenses/new.html.erb within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error (undefined method `merge' for :id:Symbol):
+    15:   <div class="form-group">
+    16:     <%= f.label :expense_name, class: "col-sm-3 control-label" %>
+    17:     <div class="col-sm-9">
+    18:       <%= f.select(:tenant_id, @tenants, :id, :name) %>
+    19:     </div>
+    20:   </div>
+    21:   <div class="form-group">
+  app/views/house_expenses/_form.html.erb:18:in `block in _app_views_house_expenses__form_html_erb___1002283466313289154_70057494265100'
+  app/views/house_expenses/_form.html.erb:3:in `_app_views_house_expenses__form_html_erb___1002283466313289154_70057494265100'
+  app/views/house_expenses/new.html.erb:3:in `_app_views_house_expenses_new_html_erb___3315167411994799400_70057747859140'
+
+
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.5ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (26.2ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (16.2ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /home/mayuran/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (32.7ms)
+
+
+Started GET "/house_expenses/new" for 127.0.0.1 at 2015-09-29 00:42:52 +0800
+Processing by HouseExpensesController#new as HTML
+  [1m[36mTenant Load (0.2ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTenant Load (0.3ms)[0m  SELECT "tenants".* FROM "tenants" WHERE "tenants"."house_id" = $1  [["house_id", 1]]
+  Rendered house_expenses/_form.html.erb (33.9ms)
+  Rendered house_expenses/new.html.erb within layouts/application (34.7ms)
+Completed 200 OK in 158ms (Views: 156.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.self-5b6dc93add186cfbc0081f647b7938e7e627ef6844555957adc75bee59b4e72a.css?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/house_account_cycles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/house_expense_per_tenants.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/house_expense_templates.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/house_expenses.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/house_settings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/houses.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/recurring_frequencies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/tenants.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2015-09-29 00:42:53 +0800
+
+
+Started GET "/house_expenses/new" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+Processing by HouseExpensesController#new as HTML
+  [1m[36mTenant Load (0.4ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTenant Load (0.3ms)[0m  SELECT "tenants".* FROM "tenants" WHERE "tenants"."house_id" = $1  [["house_id", 1]]
+  Rendered house_expenses/_form.html.erb (9.4ms)
+  Rendered house_expenses/new.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 151ms (Views: 147.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.self-5b6dc93add186cfbc0081f647b7938e7e627ef6844555957adc75bee59b4e72a.css?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/house_account_cycles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/house_expense_per_tenants.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/house_expense_templates.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/house_settings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/houses.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/house_expenses.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/recurring_frequencies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/tenants.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2015-09-29 00:43:56 +0800
+
+
+Started GET "/house_expenses/new" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+Processing by HouseExpensesController#new as HTML
+  [1m[36mTenant Load (0.1ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mTenant Load (0.2ms)[0m  SELECT "tenants".* FROM "tenants" WHERE "tenants"."house_id" = $1  [["house_id", 1]]
+  Rendered house_expenses/_form.html.erb (10.3ms)
+  Rendered house_expenses/new.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 154ms (Views: 133.2ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/application.self-5b6dc93add186cfbc0081f647b7938e7e627ef6844555957adc75bee59b4e72a.css?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/house_account_cycles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/house_expense_per_tenants.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/house_expense_templates.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/house_expenses.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/house_settings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/houses.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/recurring_frequencies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/tenants.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/bootstrap/affix.self-f7aef9d98ee5ece34a6a92a6a15bba777d93e8d908b75c95a85088277f394200.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/bootstrap/alert.self-896ab026e6823f5cef2441e07dac53d0692a5b772ac58b1ce20aa624c342d3f4.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/bootstrap/button.self-d19f3e2bcd3a7a4d75c11b9141b3fabd2c11987da1e99c85548ec3ecf8db30c3.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/bootstrap/carousel.self-b2e5e14483e6c31343a83861b7d487620f143d6fc2d07d5ae7544b6b225ba6be.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/bootstrap/collapse.self-93820e9b486e375a7fb4477602def3a6f8381fa6d50938d5378297ffbe4a1248.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/bootstrap/dropdown.self-30536ae4d54b2685c26b5787ed0eb549a9075717fe690cce6270873bedf2df00.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/bootstrap/tab.self-9b77df34cbbb08ec93a806d6cdb741f04e3dbf3389978a0679146f2d2987bc89.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/bootstrap/transition.self-9616c4e856b57659b67da3c6f2adcd584b5601ef4bebcdadab8ebb387d80bb25.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/bootstrap/scrollspy.self-c5c6ed008955656d345067e9821d79f1216b8383134d08465d4aa1a33a2b93b4.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/bootstrap/modal.self-bcfe54f3132bf16a8c5ce4289e47eba488f6522a08f49f378a037061c6c7aa4c.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/bootstrap/tooltip.self-3aa41fbe871573b34e0ebddf31598cd5a11a9841ca85f90934ea46326e46626d.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/bootstrap/popover.self-b73e9c9111d01148e24bbc46e096782e024dc5db630e7078cf11ed2587ef8551.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2015-09-29 00:44:36 +0800
+
+
+Started POST "/house_expenses" for 127.0.0.1 at 2015-09-29 00:44:56 +0800
+Processing by HouseExpensesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tPEseWEmF9iNRMUPG6e45DmvYPpW0Swxo99GIbB5oEJ57JoTwZoV1QsCsCjdCa9QaOgnIgSoZfupPzjDs6k7rA==", "house_expense"=>{"tenant_id"=>"3", "expense_name"=>"Shopping", "amount"=>"30.60", "spent_date(1i)"=>"2015", "spent_date(2i)"=>"9", "spent_date(3i)"=>"28", "tenant_ids"=>["1", "3", "4", ""]}, "commit"=>"Add expense"}
+  [1m[36mTenant Load (0.8ms)[0m  [1mSELECT "tenants".* FROM "tenants" WHERE "tenants"."id" IN (1, 3, 4)[0m
+  [1m[35mTenant Load (0.4ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTenant Exists (0.4ms)[0m  SELECT  1 AS one FROM "tenants" WHERE ("tenants"."email" = 'mayuran19@gmail.com' AND "tenants"."id" != 1) LIMIT 1
+  [1m[36mTenant Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "tenants" WHERE ("tenants"."email" = 'mayuran@gmail.com' AND "tenants"."id" != 3) LIMIT 1[0m
+  [1m[35mTenant Exists (0.4ms)[0m  SELECT  1 AS one FROM "tenants" WHERE ("tenants"."email" = 'sadden@gmail.com' AND "tenants"."id" != 4) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "house_expenses" ("tenant_id", "expense_name", "amount", "spent_date", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["tenant_id", 1], ["expense_name", "Shopping"], ["amount", "30.6"], ["spent_date", "2015-09-28"], ["house_id", 1], ["created_at", "2015-09-28 16:44:56.902503"], ["updated_at", "2015-09-28 16:44:56.902503"]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "house_expense_per_tenants" ("tenant_id", "amount", "house_expense_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["tenant_id", 1], ["amount", "10.2"], ["house_expense_id", 11], ["created_at", "2015-09-28 16:44:56.904565"], ["updated_at", "2015-09-28 16:44:56.904565"]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "house_expense_per_tenants" ("tenant_id", "amount", "house_expense_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["tenant_id", 3], ["amount", "10.2"], ["house_expense_id", 11], ["created_at", "2015-09-28 16:44:56.906987"], ["updated_at", "2015-09-28 16:44:56.906987"]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "house_expense_per_tenants" ("tenant_id", "amount", "house_expense_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["tenant_id", 4], ["amount", "10.2"], ["house_expense_id", 11], ["created_at", "2015-09-28 16:44:56.909348"], ["updated_at", "2015-09-28 16:44:56.909348"]]
+  [1m[36m (85.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/house_expenses/11
+Completed 302 Found in 122ms (ActiveRecord: 90.0ms)
+
+
+Started GET "/house_expenses/11" for 127.0.0.1 at 2015-09-29 00:44:57 +0800
+Processing by HouseExpensesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mHouseExpense Load (0.2ms)[0m  SELECT  "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."id" = $1 LIMIT 1  [["id", 11]]
+  Rendered house_expenses/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 133ms (Views: 130.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/house_expenses" for 127.0.0.1 at 2015-09-29 00:44:58 +0800
+Processing by HouseExpensesController#index as HTML
+  [1m[36mTenant Load (0.2ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mHouseAccountCycle Load (0.4ms)[0m  SELECT  "house_account_cycles".* FROM "house_account_cycles" WHERE (id = (select to_number(setting_value,'9') from house_settings where setting_name = 'ACCOUNT_CYCLE') and house_id = 1)  ORDER BY "house_account_cycles"."id" ASC LIMIT 1
+  [1m[36mHouseExpense Load (0.2ms)[0m  [1mSELECT "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."house_id" = $1[0m  [["house_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered house_expenses/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 136ms (Views: 123.8ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/house_expenses/new" for 127.0.0.1 at 2015-09-29 00:45:16 +0800
+Processing by HouseExpensesController#new as HTML
+  [1m[35mTenant Load (0.2ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mTenant Load (0.3ms)[0m  [1mSELECT "tenants".* FROM "tenants" WHERE "tenants"."house_id" = $1[0m  [["house_id", 1]]
+  Rendered house_expenses/_form.html.erb (13.5ms)
+  Rendered house_expenses/new.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 166ms (Views: 141.0ms | ActiveRecord: 5.7ms)
+
+
+Started POST "/house_expenses" for 127.0.0.1 at 2015-09-29 00:45:23 +0800
+Processing by HouseExpensesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6mpu8jo5Owx/q9MC9HCmg88o2DEchYKM7L65tOXDJsYnd9iYmoU5AfntpiUy3rE3nm+f6U78y0bmXsdW5hO9KA==", "house_expense"=>{"tenant_id"=>"3", "expense_name"=>"Shopping test1", "amount"=>"30.60", "spent_date(1i)"=>"2015", "spent_date(2i)"=>"9", "spent_date(3i)"=>"28", "tenant_ids"=>["3", "4", ""]}, "commit"=>"Add expense"}
+  [1m[35mTenant Load (0.9ms)[0m  SELECT "tenants".* FROM "tenants" WHERE "tenants"."id" IN (3, 4)
+  [1m[36mTenant Load (0.7ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mTenant Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "tenants" WHERE ("tenants"."email" = 'mayuran@gmail.com' AND "tenants"."id" != 3) LIMIT 1[0m
+  [1m[35mTenant Exists (0.3ms)[0m  SELECT  1 AS one FROM "tenants" WHERE ("tenants"."email" = 'sadden@gmail.com' AND "tenants"."id" != 4) LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "house_expenses" ("tenant_id", "expense_name", "amount", "spent_date", "house_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["tenant_id", 3], ["expense_name", "Shopping test1"], ["amount", "30.6"], ["spent_date", "2015-09-28"], ["house_id", 1], ["created_at", "2015-09-28 16:45:23.619345"], ["updated_at", "2015-09-28 16:45:23.619345"]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "house_expense_per_tenants" ("tenant_id", "amount", "house_expense_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["tenant_id", 3], ["amount", "15.3"], ["house_expense_id", 12], ["created_at", "2015-09-28 16:45:23.622443"], ["updated_at", "2015-09-28 16:45:23.622443"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "house_expense_per_tenants" ("tenant_id", "amount", "house_expense_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["tenant_id", 4], ["amount", "15.3"], ["house_expense_id", 12], ["created_at", "2015-09-28 16:45:23.624566"], ["updated_at", "2015-09-28 16:45:23.624566"]]
+  [1m[35m (35.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/house_expenses/12
+Completed 302 Found in 64ms (ActiveRecord: 40.5ms)
+
+
+Started GET "/house_expenses/12" for 127.0.0.1 at 2015-09-29 00:45:23 +0800
+Processing by HouseExpensesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mHouseExpense Load (0.2ms)[0m  [1mSELECT  "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."id" = $1 LIMIT 1[0m  [["id", 12]]
+  Rendered house_expenses/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 184ms (Views: 182.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/house_expenses" for 127.0.0.1 at 2015-09-29 00:45:25 +0800
+Processing by HouseExpensesController#index as HTML
+  [1m[35mTenant Load (0.2ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mHouseAccountCycle Load (0.4ms)[0m  [1mSELECT  "house_account_cycles".* FROM "house_account_cycles" WHERE (id = (select to_number(setting_value,'9') from house_settings where setting_name = 'ACCOUNT_CYCLE') and house_id = 1)  ORDER BY "house_account_cycles"."id" ASC LIMIT 1[0m
+  [1m[35mHouseExpense Load (0.2ms)[0m  SELECT "house_expenses".* FROM "house_expenses" WHERE "house_expenses"."house_id" = $1  [["house_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mTenant Load (0.2ms)[0m  [1mSELECT  "tenants".* FROM "tenants" WHERE "tenants"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered house_expenses/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 168ms (Views: 153.9ms | ActiveRecord: 2.8ms)

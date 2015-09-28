@@ -17,6 +17,7 @@ class HouseExpensesController < ApplicationController
   # GET /house_expenses/new
   def new
     @house_expense = HouseExpense.new
+    @house_expense.tenant_id = current_user.id
     @tenants = Tenant.where(:house_id => current_user.house_id)
   end
 
@@ -31,7 +32,6 @@ class HouseExpensesController < ApplicationController
     @house_expense.house_expense_per_tenant.each do |per_tenant|
       per_tenant.amount = @house_expense.amount / @house_expense.house_expense_per_tenant.size
     end
-    @house_expense.tenant_id = current_user.id
     @house_expense.house_id = current_user.house_id
     @house_expense.house_account_cycle_id = HouseSetting.where("setting_name = ? and house_id = ?", "ACCOUNT_CYCLE", current_user.house_id)
     respond_to do |format|
