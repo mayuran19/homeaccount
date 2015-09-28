@@ -1,5 +1,6 @@
 class Tenant < ActiveRecord::Base
   belongs_to :house
+  has_many :house_expense_per_tenants, :class_name => HouseExpensePerTenant, :foreign_key => 'tenant_id', :dependent => :destroy
   attr_accessor :password
   before_save :encrypt_password
 	  

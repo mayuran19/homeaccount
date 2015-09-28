@@ -32,6 +32,17 @@
     </div>
   </div>
   <div class="form-group">
+    <%= f.label :tenant_ids, 'Tenants', class: "col-sm-3 control-label" %>
+    <div class="col-sm-9">
+      <%= f.collection_check_boxes(:tenant_ids, @tenants, :id, :name) do |b| %>
+        <%= b.label do%>
+          <%=b.check_box + " " + b.text%>
+        <%end%>
+        <br/>
+      <% end %>
+    </div>
+  </div>
+  <div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">
       <%= f.submit 'Add expense', :class => "btn btn-default" %>
     </div>

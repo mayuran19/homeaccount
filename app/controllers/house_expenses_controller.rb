@@ -5,8 +5,6 @@ class HouseExpensesController < ApplicationController
   # GET /house_expenses.json
   def index
     @current_account_cycle = HouseAccountCycle.where("id = (select to_number(setting_value,'9') from house_settings where setting_name = 'ACCOUNT_CYCLE') and house_id = ?", current_user.house_id).first
-    puts "*******************" 
-    puts @current_account_cycle.class
     @fixed_expenses = HouseExpenseTemplate.where(:house_id => current_user.house_id)
     @house_expenses = HouseExpense.where(:house_id => current_user.house_id)
   end
@@ -19,6 +17,7 @@ class HouseExpensesController < ApplicationController
   # GET /house_expenses/new
   def new
     @house_expense = HouseExpense.new
+    @tenants = Tenant.where(:house_id => current_user.house_id)
   end
 
   # GET /house_expenses/1/edit
@@ -29,6 +28,9 @@ class HouseExpensesController < ApplicationController
   # POST /house_expenses.json
   def create
     @house_expense = HouseExpense.new(house_expense_params)
+    @house_expense.house_expense_per_tenant.each do |per_tenant|
+      per_tenant.amount = @house_expense.amount / @house_expense.house_expense_per_tenant.size
+    end
     @house_expense.tenant_id = current_user.id
     @house_expense.house_id = current_user.house_id
     @house_expense.house_account_cycle_id = HouseSetting.where("setting_name = ? and house_id = ?", "ACCOUNT_CYCLE", current_user.house_id)
@@ -75,6 +77,10 @@ class HouseExpensesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def house_expense_params
-      params.require(:house_expense).permit(:tenant_id, :house_expense_template_id, :expense_name, :house_id, :amount, :spent_date)
+      params.require(:house_expense).permit(:tenant_id, :house_expense_template_id, :expense_name, :house_id, :amount, :spent_date, :tenant_ids => [])
+    end
+
+    def house_expense_per_tenant_params
+      params.require(:house_expense).permit(:house_expense_per_tenant_ids)
     end
 end
