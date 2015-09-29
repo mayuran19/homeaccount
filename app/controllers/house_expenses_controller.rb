@@ -5,8 +5,8 @@ class HouseExpensesController < ApplicationController
   # GET /house_expenses.json
   def index
     @current_account_cycle = HouseAccountCycle.where("id = (select to_number(setting_value,'9') from house_settings where setting_name = 'ACCOUNT_CYCLE') and house_id = ?", current_user.house_id).first
-    @fixed_expenses = HouseExpenseTemplate.where(:house_id => current_user.house_id)
-    @house_expenses = HouseExpense.where(:house_id => current_user.house_id)
+    @fixed_expenses = HouseExpenseTemplate.where("house_id = ? and id not in(select house_expense_template_id from house_expenses where house_id = ? and house_account_cycle_id = (select to_number(setting_value,'9') from house_settings where setting_name = 'ACCOUNT_CYCLE' and house_id = ?) and house_expense_template_id is not null)", current_user.house_id, current_user.house_id, current_user.house_id)
+    @house_expenses = HouseExpense.where(:house_id => current_user.house_id).order("house_expense_template_id nulls last, spent_date asc")
   end
 
   # GET /house_expenses/1
@@ -33,7 +33,8 @@ class HouseExpensesController < ApplicationController
       per_tenant.amount = @house_expense.amount / @house_expense.house_expense_per_tenant.size
     end
     @house_expense.house_id = current_user.house_id
-    @house_expense.house_account_cycle_id = HouseSetting.where("setting_name = ? and house_id = ?", "ACCOUNT_CYCLE", current_user.house_id)
+    account_cycle = HouseSetting.where("setting_name = ? and house_id = ?", "ACCOUNT_CYCLE", current_user.house_id).first
+    @house_expense.house_account_cycle_id = account_cycle.setting_value
     respond_to do |format|
       if @house_expense.save
         format.html { redirect_to @house_expense, notice: 'House expense was successfully created.' }
@@ -67,6 +68,16 @@ class HouseExpensesController < ApplicationController
       format.html { redirect_to house_expenses_url, notice: 'House expense was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def update_fixed_expense
+    expense_template = HouseExpenseTemplate.find(params[:fixed_expense_id])
+    @house_expense = HouseExpense.new
+    @house_expense.house_expense_template_id = expense_template.id
+    @house_expense.expense_name = expense_template.expense_name
+    @house_expense.amount = expense_template.default_amount
+    @house_expense.tenant_id = current_user.id
+    @tenants = Tenant.where(:house_id => current_user.house_id)
   end
 
   private

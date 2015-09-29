@@ -5,6 +5,30 @@
 </div>
 
 <div class="panel panel-primary">
+  <div class="panel-heading">Fixed expenses to be paid</div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Expense</th>
+        <th class="text-right">Default amount</th>
+        <th>Default payee</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @fixed_expenses.each do |fixed_expense| %>
+        <tr>
+          <td><%=fixed_expense.expense_name%></td>
+          <td class="text-right"><%=fixed_expense.default_amount%></td>
+          <td><%=fixed_expense.default_payee.name%></td>
+          <td><%= link_to 'Update', update_fixed_expense_path(:fixed_expense_id => fixed_expense.id), method: :get, class: "btn btn-primary" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="panel panel-primary">
   <div class="panel-heading">Expenses for current cycle</div>
   <table class="table table-bordered">
     <thead>
