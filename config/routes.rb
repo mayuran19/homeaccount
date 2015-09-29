@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
+  get "house_expenses/update_fixed_expense/:fixed_expense_id" => "house_expenses#update_fixed_expense", :as => 'update_fixed_expense'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
