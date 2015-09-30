@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  house_id: 1
+  house_account_cycle_id: 1
+  account_item: MyString
+  account_item_description: MyString
+  amount: 9.99
+
+two:
+  house_id: 1
+  house_account_cycle_id: 1
+  account_item: MyString
+  account_item_description: MyString
+  amount: 9.99
