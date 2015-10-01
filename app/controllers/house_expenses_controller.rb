@@ -80,6 +80,34 @@ class HouseExpensesController < ApplicationController
     @tenants = Tenant.where(:house_id => current_user.house_id)
   end
 
+  def edit_division_factor
+    @current_account_cycle = HouseAccountCycle.where("id = (select to_number(setting_value,'9') from house_settings where setting_name = 'ACCOUNT_CYCLE') and house_id = ?", current_user.house_id).first
+    @house_expense = get_house_expense_for_division_factor
+  end
+
+  def update_division_factor
+    map = get_tenant_factor_map
+    total_factor = 0
+    map.each do |k, v|
+      puts "k:#{k} v:#{v}"
+      total_factor = total_factor + v.to_i
+    end
+    puts total_factor
+    house_expense = get_house_expense_for_division_factor
+    puts house_expense.amount
+    house_expense.house_expense_per_tenant.each do |per_tenant|
+      per_tenant.amount = (house_expense.amount / total_factor) * map[per_tenant.id.to_s].to_i
+      puts per_tenant.amount
+      per_tenant.division_factor = total_factor
+      per_tenant.tenant_factor = map[per_tenant.id.to_s]
+      per_tenant.save
+    end
+
+    respond_to do |format|
+      format.html { redirect_to house_expenses_url }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_house_expense
@@ -93,5 +121,19 @@ class HouseExpensesController < ApplicationController
 
     def house_expense_per_tenant_params
       params.require(:house_expense).permit(:house_expense_per_tenant_ids)
+    end
+
+    def get_house_expense_for_division_factor
+      house_expense = HouseExpense.find(params[:house_expense_id])
+    end
+
+    def get_tenant_factor_map
+      map = Hash.new
+      ids = params[:house_expense_per_tenants_ids]
+      ids.each do |id|
+        map[id] = params["house_expense_per_tenants_id" + id]
+      end
+      
+      map
     end
 end

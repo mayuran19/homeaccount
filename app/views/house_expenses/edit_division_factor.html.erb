@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<div class="well well-sm">
+  Current account cycle: <%= @current_account_cycle.from_date %> to <%= @current_account_cycle.to_date %>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+  <%= form_tag("/house_expenses/update_division_factor/" + @house_expense.id.to_s) do |f| %>
+  <% if @house_expense.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@house_expense.errors.count, "error") %> prohibited this house_expense from being saved:</h2>
+
+      <ul>
+      <% @house_expense.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <td>Expense</td>
+        <td><%= @house_expense.expense_name %></td>
+      </tr>
+      <tr>
+        <td>Spent date</td>
+        <td><%= @house_expense.spent_date %></td>
+      </tr>
+      <tr>
+        <td>Amount</td>
+        <td><%= @house_expense.amount %></td>
+      </tr>
+      <tr>
+        <td>Amount per tenant</td>
+        <td>
+        <% @house_expense.house_expense_per_tenant.each do |expense_per_tenant| %>
+          <%= expense_per_tenant.tenant.name %> : <%= number_with_precision expense_per_tenant.amount, :precision => 2 %>
+          <br/>
+        <% end %>
+        </td>
+      </tr>
+      <% @house_expense.house_expense_per_tenant.each do |expense_per_tenant| %>
+      <tr>
+        <td>
+          Division factor to <b><%= expense_per_tenant.tenant.name %></b>
+        </td>
+        <td>
+          <%= hidden_field_tag("house_expense_per_tenants_ids[]", expense_per_tenant.id) %>
+          <% if expense_per_tenant.tenant_factor.nil? %>
+          <%= text_field_tag("house_expense_per_tenants_id" + expense_per_tenant.id.to_s, "1", class: "form-control") %>
+          <% else %>
+          <%= text_field_tag("house_expense_per_tenants_id" + expense_per_tenant.id.to_s, expense_per_tenant.tenant_factor, class: "form-control") %>
+          <% end %>
+          
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+      <%= submit_tag("Update", :class => "btn btn-default") %>
+    </div>
+  </div>
+  <% end %>
+  </div>
+</div>

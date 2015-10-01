@@ -21,7 +21,9 @@
           <td><%=fixed_expense.expense_name%></td>
           <td class="text-right"><%=fixed_expense.default_amount%></td>
           <td><%=fixed_expense.default_payee.name%></td>
-          <td><%= link_to 'Update', update_fixed_expense_path(:fixed_expense_id => fixed_expense.id), method: :get, class: "btn btn-primary" %></td>
+          <td>
+          <%= link_to 'Update', update_fixed_expense_path(:fixed_expense_id => fixed_expense.id), method: :get, class: "btn btn-primary" %>
+          </td>
         </tr>
       <% end %>
     </tbody>
@@ -47,7 +49,10 @@
           <td class="text-right"><%=house_expense.amount%></td>
           <td><%=house_expense.tenant.name%></td>
           <td><%=house_expense.spent_date%></td>
-          <td><%= link_to 'Destroy', house_expense, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-primary" %></td>
+          <td>
+          <%= link_to 'Destroy', house_expense, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-primary" %>
+          <%= link_to 'Update factor', edit_division_factor_path(:house_expense_id => house_expense.id), method: :get, class: "btn btn-primary" %>
+          </td>
         </tr>
       <% end %>
     </tbody>
