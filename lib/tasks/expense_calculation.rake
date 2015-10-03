@@ -25,6 +25,12 @@ task :calculate_house_expense, [:processing_date, :house_id] => :environment do 
 
   		#Total spending by tenant per cycle
   		HouseAccountSummary.calculate_total_spending_by_tenant(args[:house_id], account_cycle.id)
+
+  		#Tenants settlement
+  		HouseAccountSummary.calculate_tenants_settlement(args[:house_id], account_cycle.id)
+
+  		#Move the house_account_cycle to next month
+  		HouseAccountCycle.move_to_next_account_cycle(args[:house_id])
   	end
   end
 end
