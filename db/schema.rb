@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151001152842) do
+ActiveRecord::Schema.define(version: 20151003060734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20151001152842) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.integer  "tenant_id"
+    t.integer  "to_tenant_id"
   end
 
   create_table "house_expense_per_tenants", force: :cascade do |t|
@@ -82,8 +83,9 @@ ActiveRecord::Schema.define(version: 20151001152842) do
   create_table "houses", force: :cascade do |t|
     t.string   "name"
     t.text     "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "default_account_cycle_date"
   end
 
   create_table "recurring_frequencies", force: :cascade do |t|
