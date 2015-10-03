@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "house_expenses/account_cycle_summary" => "house_expenses#account_cycle_summary", :as => 'account_cycle_summary'
   resources :house_settings
   resources :house_account_cycles
   get 'sessions/new'
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
   get "house_expenses/update_fixed_expense/:fixed_expense_id" => "house_expenses#update_fixed_expense", :as => 'update_fixed_expense'
   get "house_expenses/edit_division_factor/:house_expense_id" => "house_expenses#edit_division_factor", :as => 'edit_division_factor'
   post "house_expenses/update_division_factor/:house_expense_id" => "house_expenses#update_division_factor", :as => 'update_division_factor'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
