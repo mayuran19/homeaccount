@@ -43,4 +43,8 @@ class HouseExpense < ActiveRecord::Base
 
   	spending_by_tenants
   end
+
+  def self.get_expenses_for_current_cycle(house_id, house_account_cycle_id)
+  	HouseExpense.where(:house_id => house_id, :house_account_cycle_id => house_account_cycle_id).order("house_expense_template_id nulls last, spent_date asc")
+  end
 end

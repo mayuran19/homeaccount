@@ -1,12 +1,12 @@
 class HouseExpensesController < ApplicationController
-  before_action :set_house_expense, only: [:show, :edit, :update, :destroy]
+  #before_action :set_house_expense, only: [:show, :edit, :update, :destroy]
 
   # GET /house_expenses
   # GET /house_expenses.json
   def index
-    @current_account_cycle = HouseAccountCycle.where("id = (select to_number(setting_value,'9') from house_settings where setting_name = 'ACCOUNT_CYCLE') and house_id = ?", current_user.house_id).first
-    @fixed_expenses = HouseExpenseTemplate.where("house_id = ? and id not in(select house_expense_template_id from house_expenses where house_id = ? and house_account_cycle_id = (select to_number(setting_value,'9') from house_settings where setting_name = 'ACCOUNT_CYCLE' and house_id = ?) and house_expense_template_id is not null)", current_user.house_id, current_user.house_id, current_user.house_id)
-    @house_expenses = HouseExpense.where(:house_id => current_user.house_id).order("house_expense_template_id nulls last, spent_date asc")
+    @current_account_cycle = HouseAccountCycle.get_current_account_cycle(current_user.house_id)
+    @fixed_expenses = HouseExpenseTemplate.fixed_expenses_not_paid_for_current_cycle(current_user.house_id)
+    @house_expenses = HouseExpense.get_expenses_for_current_cycle(current_user.house_id, @current_account_cycle.id)
   end
 
   # GET /house_expenses/1
@@ -33,7 +33,7 @@ class HouseExpensesController < ApplicationController
       per_tenant.amount = @house_expense.amount / @house_expense.house_expense_per_tenant.size
     end
     @house_expense.house_id = current_user.house_id
-    account_cycle = HouseSetting.where("setting_name = ? and house_id = ?", "ACCOUNT_CYCLE", current_user.house_id).first
+    account_cycle = HouseSetting.get_current_account_cycle_setting(current_user.house_id)
     @house_expense.house_account_cycle_id = account_cycle.setting_value
     respond_to do |format|
       if @house_expense.save
@@ -81,7 +81,7 @@ class HouseExpensesController < ApplicationController
   end
 
   def edit_division_factor
-    @current_account_cycle = HouseAccountCycle.where("id = (select to_number(setting_value,'9') from house_settings where setting_name = 'ACCOUNT_CYCLE') and house_id = ?", current_user.house_id).first
+    @current_account_cycle = HouseAccountCycle.get_current_account_cycle(current_user.house_id)
     @house_expense = get_house_expense_for_division_factor
   end
 
@@ -106,6 +106,15 @@ class HouseExpensesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to house_expenses_url }
     end
+  end
+
+  def account_cycle_summary
+    @account_cycle = HouseAccountCycle.get_last_account_cycle(current_user.house_id)
+    @total_summary = HouseAccountSummary.get_total_for_cycle(current_user.house_id, @account_cycle.id)
+    @spendings = HouseAccountSummary.get_tenants_spendings(current_user.house_id, @account_cycle.id)
+    @expenses = HouseAccountSummary.get_tenants_expenses(current_user.house_id, @account_cycle.id)
+    @receivers = HouseAccountSummary.get_receivers(current_user.house_id, @account_cycle.id)
+    @payers = HouseAccountSummary.get_payers(current_user.house_id, @account_cycle.id)
   end
 
   private
